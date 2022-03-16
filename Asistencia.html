@@ -16,17 +16,6 @@
 <body>
     <h1>Asistencia</h1>
 
-    <div class="card">
-        <div class="card-body">
-            Alumno
-        </div>
-    </div>
-
-    <div class="mb-3">
-        <!--label for="exampleFormControlInput1" class="form-label">Email address</label-->
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Daniel">
-    </div>
-
 
     <div class="card">
         <div class="card-body">
@@ -34,10 +23,12 @@
         </div>
     </div>
 
-    <div class="mb-3">
-        <!--label for="exampleFormControlInput1" class="form-label">Email address</label-->
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Primero, Segundo, Tercer">
-    </div>
+    <select class="form-select" aria-label="Default select example">
+        <option selected>--Periodo--</option>
+        <option value="1">1ro</option>
+        <option value="2">2do</option>
+        <option value="3">3ro</option>
+    </select>
 
     <div class="card">
         <div class="card-body">
@@ -45,13 +36,21 @@
         </div>
     </div>
 
-    <div class="mb-3">
-        <!--label for="exampleFormControlInput1" class="form-label">Email address</label-->
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Historia">
+    <select class="form-select" aria-label="Default select example">
+        <option selected>--Cursos--</option>
+        <option value="1">Programación</option>
+        <option value="2">Comunicación Escrita</option>
+        <option value="3">Matemáticas</option>
+    </select>
+
+    <div class="card">
+        <div class="card-body">
+            Fecha
+        </div>
     </div>
 
     <div class="col-12">
-        <label for="date" class="col-sm-1 col-form-label">Fecha</label>
+
         <div class="input-group date" id="datepicker">
             <input type="text" class="form-control">
             <span class="input-group-append">
@@ -72,7 +71,7 @@
 
     <div class="cs-form">
         <input type="time" class="form-control" value="10:05 AM" />
-      </div>
+    </div>
 
     <br />
 
