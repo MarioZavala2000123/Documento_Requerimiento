@@ -81,7 +81,19 @@
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-      crossorigin="anonymous"></script>
+      crossorigin="anonymous">
+    </script>
+
+<script>
+  const url = 'http://147.182.187.126/attendance/docente'
+
+  fetch(url)
+  .then(Response => Response.json())
+  .then(data => {
+      console.log(data)
+  }) 
+  .catch(err=>console.log(err))
+</script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
