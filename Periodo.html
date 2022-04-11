@@ -2,11 +2,9 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
@@ -23,7 +21,6 @@
     </div>
 
     <div class="mb-3">
-        <!--label for="exampleFormControlInput1" class="form-label">Email address</label-->
         <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
     </div>
 
@@ -35,35 +32,16 @@
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">#</th>
+                <th scope="col">Id</th>
                 <th scope="col">Descripción</th>
                 <th scope="col">Fecha Inicial</th>
                 <th scope="col">Fecha Final</th>
             </tr>
         </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>1-2022</td>
-                <td>15/01/2022</td>
-                <td>15/01/2022</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>2-2021</td>
-                <td>15/07/2021</td>
-                <td>15/11/2021</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>1-2021</td>
-                <td>15/01/2022</td>
-                <td>15/07/2022</td>
-            </tr>
+        <tbody id="data">
+            
         </tbody>
     </table>
-
-    <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -71,22 +49,30 @@
         crossorigin="anonymous">
     </script>
 
+<!--Fetch Imprimir-->
 <script>
-    const url = 'http://147.182.187.126/attendance/periodo'
+    let url = 'http://147.182.187.126/attendance/periodo'
 
     fetch(url)
     .then(Response => Response.json())
-    .then(data => {
-        console.log(data)
-    }) 
-    .catch(err=>console.log(err))
-</script>
+   .then(data => mostrarData(data)) 
+    .catch(error=>console.log(error))
 
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-    -->
+   const mostrarData = (data) => {
+    console.log(data)
+    let body = ''
+   for (let i = 0; i<data.length; i++){
+      body += `<td>${data[i].idPeriodo}</td>
+               <td>${data[i].descripcion}</td>
+               <td>${data[i].fechaInicial}</td>
+               <td>${data[i].fechaFinal}</td>
+                </tr> `
+   }
+
+    document.getElementById('data').innerHTML = body
+    }
+  </script>
+
 </body>
 
 </html>
