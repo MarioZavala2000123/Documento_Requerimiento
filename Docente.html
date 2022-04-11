@@ -2,11 +2,9 @@
 <html lang="en">
 
 <head>
-  <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
@@ -24,59 +22,28 @@
     </div>
 
     <div class="mb-3">
-      <!--label for="exampleFormControlInput1" class="form-label">Email address</label-->
       <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
     </div>
 
-
-
     <button type="button" class="btn btn-primary">Buscar</button>
     <button type="button" class="btn btn-secondary">Agregar</button>
-
     <button type="button" class="btn btn-secondary">Exportar</button>
 
     <table class="table">
       <thead>
         <tr>
           <th scope="col">ID</th>
-          <th scope="col">CUI</th>
-          <th scope="col">Nombre</th>
-          <th scope="col">Apellido</th>
+          <th scope="col">DPI</th>
+          <th scope="col">Nombres</th>
+          <th scope="col">Apellidos</th>
+          <th scope="col">Teléfono</th>
           <th scope="col">Correo</th>
-          <th scope="col">Telefono</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <th scope="row">24MW</th>
-          <td>315320651021</td>
-          <td>Marcos</td>
-          <td>Orozco</td>
-          <td>maorozcop@catedratico.uspg.edu.gt</td>
-          <td>69515965</td>
-        </tr>
-        <tr>
-          <th scope="row">25MW</th>
-          <td>315320651025</td>
-          <td>Mynor</td>
-          <td>López</td>
-          <td>maloopez@catedratico.uspg.edu.gt</td>
-          <td>65214569</td>
-        </tr>
-        <tr>
-          <th scope="row">26MW</th>
-          <td>26251535131</td>
-          <td>Rosa</td>
-          <td>Choc</td>
-          <td>rechocr@catedratico.uspg.edu.gt</td>
-          <td>34621156</td>
-          <td><button type="button" class="btn btn-success">Editar</button></td>
-        </tr>
+      <tbody id="data">
+            
       </tbody>
     </table>
-
-
-    <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -84,22 +51,32 @@
       crossorigin="anonymous">
     </script>
 
-<script>
-  const url = 'http://147.182.187.126/attendance/docente'
+  <!--Fetch Imprimir-->
+  <script>
+    let url = 'http://147.182.187.126/attendance/docente'
 
-  fetch(url)
-  .then(Response => Response.json())
-  .then(data => {
-      console.log(data)
-  }) 
-  .catch(err=>console.log(err))
+    fetch(url)
+    .then(Response => Response.json())
+    .then(data => mostrarData(data)) 
+   .catch(error=>console.log(error))
+
+   const mostrarData = (data) => {
+   console.log(data)
+   let body = ''
+    for (let i = 0; i<data.length; i++){
+    body += `<td>${data[i].idDocente}</td> 
+             <td>${data[i].dpi}</td>
+             <td>${data[i].nombres}</td>
+             <td>${data[i].apellidos}</td>
+             <td>${data[i].telefono}</td>
+             <td>${data[i].mail}</td>
+              </tr> `
+    }
+
+    document.getElementById('data').innerHTML = body
+  }
 </script>
 
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-    -->
 </body>
 
 </html>
