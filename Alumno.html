@@ -35,7 +35,7 @@
 
   </tr>
   <tr>
-    <a class="btn btn-primary" href="#" role="button">Agregar más nombres </a>
+    <a class="btn btn-primary" href="Alumno_Tecleo.html" role="button">Agregar más nombres </a>
   </tr>
   <tr>
     <button type="button" class="btn btn-warning">Guardar los nombres seleccionado </button>
@@ -75,7 +75,8 @@
     console.log(data)
     let body = ''
    for (let i = 0; i<data.length; i++){
-      body += `<td>${data[i].idAlumno}</td> <td>${data[i].carnet}</td> <td>${data[i].nombres}</td> <td>${data[i].apellidos}</td></tr> `
+      body += `<td>${data[i].idAlumno}</td> <td>${data[i].carnet}</td> <td>${data[i].nombres}</td> 
+      <td>${data[i].apellidos}</td></tr> `
    }
 
     document.getElementById('data').innerHTML = body

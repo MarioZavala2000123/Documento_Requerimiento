@@ -20,11 +20,18 @@
                   Informacion
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Alumno</a></li>
-                  <li><a class="dropdown-item" href="#">Asistencia</a></li>
-                  <li><a class="dropdown-item" href="#">Curso</a></li>
-                  <li><a class="dropdown-item" href="#">Docente</a></li>
-                  <li><a class="dropdown-item" href="#">Periodo</a></li>
+
+                  <a class="btn " href="Alumno.html?id=<?html echo $employee->id ?>">
+                    Alumno <i class="fa fa-edit"></i>
+                  <a class="btn" href="Asistencia.html?id=<?html echo $employee->id ?>">
+                    Asistencia <i class="fa fa-edit"></i>
+                  <a class="btn" href="Curso.html?id=<?html echo $employee->id ?>">
+                    Curso <i class="fa fa-edit"></i>
+                  <a class="btn" href="Docente.html?id=<?html echo $employee->id ?>">
+                    Docente <i class="fa fa-edit"></i>
+                  <a class="btn" href="Periodo.html?id=<?html echo $employee->id ?>">
+                    Periodo <i class="fa fa-edit"></i>
+                    
                   <li><hr class="dropdown-divider"></li>
                 </ul>
 
