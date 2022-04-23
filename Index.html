@@ -21,16 +21,11 @@
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-                  <a class="btn " href="Alumno.html?id=<?html echo $employee->id ?>">
-                    Alumno <i class="fa fa-edit"></i>
-                  <a class="btn" href="Asistencia.html?id=<?html echo $employee->id ?>">
-                    Asistencia <i class="fa fa-edit"></i>
-                  <a class="btn" href="Curso.html?id=<?html echo $employee->id ?>">
-                    Curso <i class="fa fa-edit"></i>
-                  <a class="btn" href="Docente.html?id=<?html echo $employee->id ?>">
-                    Docente <i class="fa fa-edit"></i>
-                  <a class="btn" href="Periodo.html?id=<?html echo $employee->id ?>">
-                    Periodo <i class="fa fa-edit"></i>
+                  <li><a class="dropdown-item" href="Alumno.html">Alumno</a></li>
+                  <li><a class="dropdown-item" href="Asistencia.html">Asistencia</a></li>
+                  <li><a class="dropdown-item" href="Curso.html">Curso</a></li>
+                  <li><a class="dropdown-item" href="Docente.html">Docente</a></li>
+                  <li><a class="dropdown-item" href="Periodo.html">Periodo</a></li>
                     
                   <li><hr class="dropdown-divider"></li>
                 </ul>
@@ -40,10 +35,10 @@
                       Editar Informacion
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="#">Alumno Tecleo</a></li>
-                      <li><a class="dropdown-item" href="#">Curso Tecleo</a></li>
-                      <li><a class="dropdown-item" href="#">Docente Tecleo</a></li>
-                      <li><a class="dropdown-item" href="#">Periodo Tecleo</a></li>
+                      <li><a class="dropdown-item" href="Alumno_Tecleo.html">Alumno Tecleo</a></li>
+                      <li><a class="dropdown-item" href="Curso-Tecleo.html">Curso Tecleo</a></li>
+                      <li><a class="dropdown-item" href="Docente-Tecleo.html">Docente Tecleo</a></li>
+                      <li><a class="dropdown-item" href="Periodo-Tecleo.html">Periodo Tecleo</a></li>
                       <li><hr class="dropdown-divider"></li>
                     </ul>
 
@@ -52,21 +47,13 @@
                       Agregar Informacion
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="#">Asignar alumno a curso</a></li>
-                      <li><a class="dropdown-item" href="#">Asignar Docente a curso</a></li>
-                      <li><a class="dropdown-item" href="#">Asistencia detalle</a></li>
+                      <li><a class="dropdown-item" href="Asignar_Alumno_Curso.html">Asignar alumno a curso</a></li>
+                      <li><a class="dropdown-item" href="Asignar_Docente_a_Curso.html">Asignar Docente a curso</a></li>
+                      <li><a class="dropdown-item" href="Asistencia-Detalle.html">Asistencia detalle</a></li>
                       <li><hr class="dropdown-divider"></li>
                     </ul>
-
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled">Disabled</a>
               </li>
             </ul>
-            <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
           </div>
         </div>
       </nav>
