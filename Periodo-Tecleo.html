@@ -127,12 +127,18 @@
                 var descripcionP = document.getElementById('descripcionP').value
                 var fechaI = document.getElementById('fechaI').value
                 var fechaF = document.getElementById('fechaF').value
-                
+
+                const date = new Date(fechaI);
+                const iso = date.toISOString();
+
+                console.log(fechaI);
+                console.log(date.toISOString());
+                console.log(iso);
 
                 var data = {
                     descripcion: descripcionP,
-                    fechaInicial: fechaI,
-                    fechaFinal: fechaF
+                    fechaInicial: iso,
+                    fechaFinal: iso
                 }
 
                 console.log(JSON.stringify(data));
