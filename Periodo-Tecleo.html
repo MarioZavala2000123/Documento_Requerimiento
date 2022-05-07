@@ -24,7 +24,7 @@
         </div>
     </div>
     <div class="mb-3">
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="1-2022">
+        <input type="email" class="form-control" id="descripcionP" placeholder="1-2022">
     </div>
 
     <!--Fecha Inicial-->
@@ -35,7 +35,7 @@
         <section class="col-sm-12">
             <div class="form-group">
                 <div class='input-group date' id='datetimepicker1'>
-                    <input type='text' class="form-control" />
+                    <input type='text' id="fechaI" class="form-control" />
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
@@ -61,7 +61,7 @@
         <section class="col-sm-12">
             <div class="form-group">
                 <div class='input-group date' id='datetimepicker2'>
-                    <input type='text' class="form-control" />
+                    <input type='text' id="fechaF" class="form-control" />
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
@@ -124,14 +124,15 @@
 
             function grabar() {
                 let url = 'http://147.182.187.126/attendance/periodo'
-                var nombresA = document.getElementById('nombresA').value
-                var apellidosA = document.getElementById('apellidosA').value
-                var carnetA = document.getElementById('carnetA').value
+                var descripcionP = document.getElementById('descripcionP').value
+                var fechaI = document.getElementById('fechaI').value
+                var fechaF = document.getElementById('fechaF').value
+                
 
                 var data = {
-                    carnet: carnetA,
-                    nombres: nombresA,
-                    apellidos: apellidosA
+                    descripcion: descripcionP,
+                    fechaInicial: fechaI,
+                    fechaFinal: fechaF
                 }
 
                 console.log(JSON.stringify(data));
