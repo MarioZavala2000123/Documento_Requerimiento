@@ -69,6 +69,25 @@
     </script>
 
     <!--script>
+        let url = 'http://147.182.187.126/attendance/curso'
+        function loadTableData(items){
+            console.log('entre en load data table')
+            const table = document.getElementById('testBodyActividad')
+            table.innerHTML = ''
+            for(item in items){
+                let row = table.insertRow();
+
+                let idCurso = row.insertCell(0)
+                idCurso.innerHTML = items[item].idCurso
+                let nombre = row.insertCell(1)
+                nombre.innerHTML = items[item].nombre
+                let edit = row.insertCell(2)
+                edit.innerHTML = '<a class="btn btn-primary btn-lg" role="button"  id="btnfind4" onclick="openMOdal()">Editar</a>'
+            }
+        }
+    </script-->
+
+    <!--script>
             var url = 'http://147.182.187.126/attendance/curso';
             var data = { nombre: "Pensamiento Práctico", creditos: 4 };
     
