@@ -10,6 +10,7 @@ const txtCre = document.getElementById('txtCre')
 const table = document.getElementById('testBodyActividad')
 
 function fetchActividades(){
+  console.log(iddocente.value)
     fetch(url + "/" + iddocente.value )
     .then(response => response.json())
     .then(data => loadTableData(data))
@@ -60,47 +61,58 @@ function fetchUpdateActividades(){
 }
 
   function loadTableData(items){
+    console.log(items)
     table.innerHTML = ''
-    if(Object.keys(items).length < 4){
+    console.log(Object.keys(items).length)
+    if(Object.keys(items).length < 2){
       let row = table.insertRow();
       let idActividad = row.insertCell(0)
-      idActividad.innerHTML = items.idDocente
-      let descripcion = row.insertCell(1)
-      descripcion.innerHTML = items.nombres
-      let apellidos = row.insertCell(2)
-      apellidos.innerHTML = items.apellidos
-      let edit = row.insertCell(3)
+      idActividad.innerHTML = items[item].idDocente
+      let dpi = row.insertCell(1)
+      dpi.innerHTML = items[item].dpi
+      let nombres = row.insertCell(2)
+      nombres.innerHTML = items[item].nombres
+      let apellidos = row.insertCell(3)
+      apellidos.innerHTML = items[item].apellidos
+      let telefono = row.insertCell(4)
+      telefono.innerHTML = items[item].telefono
+      let mail = row.insertCell(5)
+      mail.innerHTML = items[item].mail
+      let edit = row.insertCell(6)
       edit.innerHTML = '<a class="btn btn-primary btn-lg"  role="button" id="btnfind4" onclick="openModal() ">Select</a>'
 
     }else {
       for(item in items){
         let row = table.insertRow();
-        
         let idActividad = row.insertCell(0)
         idActividad.innerHTML = items[item].idDocente
-        let descripcion = row.insertCell(1)
-        descripcion.innerHTML = items[item].nombres
-        let apellidos = row.insertCell(2)
+        let dpi = row.insertCell(1)
+        dpi.innerHTML = items[item].dpi
+        let nombres = row.insertCell(2)
+        nombres.innerHTML = items[item].nombres
+        let apellidos = row.insertCell(3)
         apellidos.innerHTML = items[item].apellidos
-        let edit = row.insertCell(3)
+        let telefono = row.insertCell(4)
+        telefono.innerHTML = items[item].telefono
+        let mail = row.insertCell(5)
+        mail.innerHTML = items[item].mail
+        let edit = row.insertCell(6)
         edit.innerHTML = '<a class="btn btn-primary btn-lg"  role="button" id="btnfind4" onclick="openModal()">Select</a>'
     }
     }
-    
     
 }
 
 function openModal(){
   console.log('entra en función')
   var table = document.getElementById('testBodyActividad');
+  var idDocente1 = document.getElementById('id');
+  console.log(idDocente1)
   console.log(table)
   var cells = table.getElementsByTagName('td');
   for (var i = 0; i < cells.length; i++) {
-    // Take each cell
     var cell = cells[i];
-    // do something on onclick event for cell
     cell.onclick = function () {
-        // Get the row id where the cell exists
         
         var rowId = this.parentNode.rowIndex-1;
         console.log("print row id")
@@ -108,14 +120,11 @@ function openModal(){
         var rowSelected = table.getElementsByTagName('tr')[rowId];
         console.log(rowSelected)
         console.log(rowSelected.cells[0].innerHTML)
-
-      
-        $("#txtIdUpdate").val(rowSelected.cells[0].innerHTML)
-        $("#txtDesc").val(rowSelected.cells[1].innerHTML)
-        $("#txtCre").val(rowSelected.cells[2].innerHTML)
+      window.localStorage.setItem('id', rowSelected.cells[0].innerHTML);
         rowSelected.className += " selected";
-             
+                 
     }
+    window.location.href = "Docente-Tecleo.html";
 }
-   $("#exampleModal").modal()
+  
 }
