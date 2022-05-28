@@ -22,11 +22,11 @@
     </div>
 
     <div class="mb-3">
-      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+      <input type="email" class="form-control" id="idDocente" placeholder=" ">
     </div>
 
-    <button type="button" class="btn btn-primary">Buscar</button>
-    <button type="button" class="btn btn-secondary">Agregar</button>
+    <button type="button" class="btn btn-primary" onclick="fetchActividades()">Buscar</button>
+    <button type="button" class="btn btn-secondary" onclick="fetchSaveActividades()">Agregar</button>
     <button type="button" class="btn btn-secondary">Exportar</button>
 
     <table class="table">
@@ -40,7 +40,7 @@
           <th scope="col">Correo</th>
         </tr>
       </thead>
-      <tbody id="data">
+      <tbody id="testBodyActividad">
             
       </tbody>
     </table>
@@ -51,31 +51,7 @@
       crossorigin="anonymous">
     </script>
 
-  <!--Fetch Imprimir-->
-  <script>
-    let url = 'http://147.182.187.126/attendance/docente'
-
-    fetch(url)
-    .then(Response => Response.json())
-    .then(data => mostrarData(data)) 
-   .catch(error=>console.log(error))
-
-   const mostrarData = (data) => {
-   console.log(data)
-   let body = ''
-    for (let i = 0; i<data.length; i++){
-    body += `<td>${data[i].idDocente}</td> 
-             <td>${data[i].dpi}</td>
-             <td>${data[i].nombres}</td>
-             <td>${data[i].apellidos}</td>
-             <td>${data[i].telefono}</td>
-             <td>${data[i].mail}</td>
-              </tr> `
-    }
-
-    document.getElementById('data').innerHTML = body
-  }
-</script>
+<script src='JS/Docente.js'></script>
 
 </body>
 
