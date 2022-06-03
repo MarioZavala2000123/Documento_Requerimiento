@@ -21,11 +21,11 @@
     </div>
 
     <div class="mb-3">
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+        <input type="email" class="form-control" id="idPeriodo" placeholder="name@example.com">
     </div>
 
 
-    <button type="button" class="btn btn-primary">Buscar</button>
+    <button type="button" class="btn btn-primary" onclick="fetchActividades()">Buscar</button>
     <button type="button" class="btn btn-warning">Grabar</button>
     <button type="button" class="btn btn-danger">Exportar</button>
 
@@ -38,7 +38,7 @@
                 <th scope="col">Fecha Final</th>
             </tr>
         </thead>
-        <tbody id="data">
+        <tbody id="testBodyActividad">
             
         </tbody>
     </table>
@@ -48,31 +48,7 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous">
     </script>
-
-<!--Fetch Imprimir-->
-<script>
-    let url = 'http://147.182.187.126/attendance/periodo'
-
-    fetch(url)
-    .then(Response => Response.json())
-   .then(data => mostrarData(data)) 
-    .catch(error=>console.log(error))
-
-   const mostrarData = (data) => {
-    console.log(data)
-    let body = ''
-   for (let i = 0; i<data.length; i++){
-      body += `<td>${data[i].idPeriodo}</td>
-               <td>${data[i].descripcion}</td>
-               <td>${data[i].fechaInicial}</td>
-               <td>${data[i].fechaFinal}</td>
-                </tr> `
-   }
-
-    document.getElementById('data').innerHTML = body
-    }
-  </script>
-
+    <script src='JS/Periodo.js'></script>
 </body>
 
 </html>
