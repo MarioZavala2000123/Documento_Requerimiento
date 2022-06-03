@@ -26,9 +26,9 @@
 
   <div class="mb-3">
     <!--label for="exampleFormControlInput1" class="form-label">Email address</label-->
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+    <input type="email" class="form-control" id="idAlumno" placeholder="name@example.com">
   </div>
-  <button type="button" class="btn btn-success">Buscar</button>
+  <button type="button" class="btn btn-primary" onclick="fetchActividades()">Buscar</button>
 <!--Boton redirecciona a otro archivo html-->
   <!--a class="btn btn-warning" href="Asignar_Alumno_Curso.html?id=<?html echo $employee->id ?>">
     Editar <i class="fa fa-edit"></i-->
@@ -50,7 +50,7 @@
           
         </tr>
       </thead>
-      <tbody id="data">
+      <tbody id="testBodyActividad">
             
       </tbody>
     </table>
@@ -62,26 +62,8 @@
         crossorigin="anonymous">
       </script>
 
-  <!--Fetch Imprimir-->
-  <script>
-    let url = 'http://147.182.187.126/attendance/alumno'
-
-    fetch(url)
-    .then(Response => Response.json())
-   .then(data => mostrarData(data)) 
-    .catch(error=>console.log(error))
-
-   const mostrarData = (data) => {
-    console.log(data)
-    let body = ''
-   for (let i = 0; i<data.length; i++){
-      body += `<td>${data[i].idAlumno}</td> <td>${data[i].carnet}</td> <td>${data[i].nombres}</td> 
-      <td>${data[i].apellidos}</td></tr> `
-   }
-
-    document.getElementById('data').innerHTML = body
-    }
-  </script>
+    <script src='JS/Alumno.js'></script>
+  
 
 </body>
 
